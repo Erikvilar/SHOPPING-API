@@ -1,23 +1,31 @@
 package com.shoppingapi.shoppingapi.model;
 
-import java.util.Date;
+
+
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
+
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+
+
 @Data
-@Document(collection = "shop")
+@AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = "shops")
 public class Shop {
+
     @Id
-    private String id;
+    private ObjectId id;
     private String userIdentifier;
-    private Date date;
-    
-    @DBRef
-    private List<Item> items;
-    
-    private Double total;
+    private String date;
+    private List<Item> items; 
+    private double total;
 }
